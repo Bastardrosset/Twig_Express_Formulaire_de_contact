@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1{
+    font-size: 1.6rem;
+    text-align: center;
+    margin-top: 80px;
+}
+p{
+    padding: 20px;
+    margin-top: 30px;
+}
+.error li{
+    color: red;
+}

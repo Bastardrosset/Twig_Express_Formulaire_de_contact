@@ -1,0 +1,43 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <h1>page contact</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit quidem eaque illum rem reiciendis id, cumque nulla earum molestias vel iste accusamus ad qui incidunt voluptate assumenda libero sapiente fuga. Reprehenderit sapiente provident eius necessitatibus aliquam dicta, dolor nihil suscipit itaque totam debitis nesciunt temporibus optio aspernatur beatae repellendus voluptas!
+        </p>
+    <div class="container">
+        <form method="POST" action="/contact">
+            {% if success %}
+                <div class="alert alert-success">{{success}}</div>
+            {% endif %}
+            {% if error %}
+                <div class="alert alert-danger">{{error}}</div>
+            {% endif %}
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Adresse Email</label>
+                <input type="email" name="email" class="form-control" id="email" placeholder="Votre Email">
+                {% if formError.email %}
+                    <ul class="error"><li>{{ formError.email.message }}</li></ul>
+                {% endif %}
+                
+            </div>
+            <div class="mb-3">
+                <label for="subject" class="form-label">Sujet</label>
+                <input type="subject" name="subject" class="form-control" id="subject" placeholder="Sujet">
+                {% if formError.subject %}
+                    <ul class="error"><li>{{ formError.subject.message }}</li></ul>
+                {% endif %}
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Votre message</label>
+                <textarea class="form-control" name="message" id="message" rows="3"></textarea>
+                {% if formError.message %}
+                    <ul class="error"><li>{{ formError.message.message }}</li></ul>
+                {% endif %}
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3">Envoi</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
